@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc Percentage</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <header>
+        <h1>Percentage Calculator</h1>
+    </header>
+    <main class="main-container">
+        <form class="form-container" action="">
+            <label class="form-text">Ingrese la cantidad</label>
+            <input type="number" class="number-cant">
+            <label class="form-text">Ingrese el porcentage de descuento</label>
+            <input type="number" class="percent-cant">
+            <button onclick="calcularDescuento()" type="button" class="calc-btn">Calc percentage</button>
+
+            <p  class="form-result">Cantidad con descuento</p>
+            
+        </form>
+        <script>
+
+            const inputPrice = document.getElementsByClassName("number-cant")[0];
+            const inputDiscount = document.getElementsByClassName("percent-cant")[0];
+            const calcButton = document.getElementsByClassName("calc-btn")[0];
+            const labelPriceDiscounted = document.getElementsByClassName("form-result")[0];
+            const precioDescuento = inputPrice.value*(100-inputDiscount.value)/100;
+    
+            //calcButton.addEventListener('click', calcularDescuento);
+
+
+            function calcularDescuento() {
+                const precioDescuento = "El costo de su compra es de: $" + inputPrice.value*(100-inputDiscount.value)/100;
+                const ofertaProducto = document.createElement('span');
+                labelPriceDiscounted.innerText = precioDescuento;
+            }   
+        </script>
+        <script src="./platzimath.js"></script>
+    </main>
+</body>
+</html>
